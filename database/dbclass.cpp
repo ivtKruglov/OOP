@@ -7,8 +7,6 @@ DBClass::DBClass()
     {
         {0, "\\b(?:\\S+)\\b"},                                                   // Марка
         {1, "\\b(?:\\d+)\\b"},                                                   // Мощность (в л.с.)
-        {2, "\\b(((?:\\М|м)еханическая)|(?:\\А|а)втоматическая)\\b"},            // Тип коробки передач
-        {3, "\\b(((?:\\Л|л)егковая)|((?:\\Г|г)рузовая)|(?:\\С|с)порткар)\\b"}    // Тип машины
     };
     headers.append("ID");
     headers.append("Марка");
@@ -62,7 +60,7 @@ void DBClass::clear()
 bool DBClass::checkRow(const QVector<QString> &row)
 {
     bool result = true;
-    for (int i = 0; i < row.size(); ++i)
+    for (int i = 0; i < row.size()-2; ++i)
     {
         QRegExp rx(dict.values(i).value(0));
         if (rx.indexIn(row[i]) != -1)

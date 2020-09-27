@@ -29,5 +29,5 @@ void AddRowClass::incorrectData()
 
 QVector<QString> AddRowClass::getNewRow()
 {
-    return {ui->lineEdit->text(), ui->lineEdit_2->text(), ui->lineEdit_3->text(), ui->lineEdit_4->text()};
+    return {ui->lineEdit->text(), ui->lineEdit_2->text(), ui->comboBox->currentText(), ui->comboBox_2->currentText()};
 }
